@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -165,7 +166,7 @@ const TextInputSection = () => {
             <Label htmlFor="secondary-text">Secondary Text</Label>
             <Input
               id="secondary-text"
-              placeholder="e.g. Next Service Due"
+              placeholder="e.g. Website or Location"
               value={secondaryText}
               onChange={(e) => setSecondaryText(e.target.value)}
               className="mt-1"

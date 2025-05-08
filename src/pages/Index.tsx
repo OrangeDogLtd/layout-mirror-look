@@ -5,6 +5,7 @@ import UploadLogoSection from "@/components/UploadLogoSection";
 import LabelLayoutOptions from "@/components/LabelLayoutOptions";
 import TextInputSection from "@/components/TextInputSection";
 import { Button } from "@/components/ui/button";
+import { Heart, FileArrowDown, HelpCircle } from "lucide-react";
 
 const Index = () => {
   return (
@@ -33,17 +34,22 @@ const Index = () => {
                 <LabelLayoutOptions />
                 <TextInputSection />
                 
-                {/* Action Buttons - Centered to the design side */}
-                <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                {/* Action Buttons - Aligned to panel edges */}
+                <div className="mt-8 flex flex-col sm:flex-row justify-between gap-4">
                   <Button variant="default" size="lg" className="bg-[#FF6600] hover:bg-[#e05a00]">
-                    I love it, order now
+                    <Heart className="mr-1" size={18} />
+                    I Love It, Order Now
                   </Button>
-                  <Button variant="secondary" size="lg">
-                    Export label design
-                  </Button>
-                  <Button variant="outline" size="lg">
-                    I still need help
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white">
+                      <FileArrowDown className="mr-1" size={18} />
+                      Export Label Design
+                    </Button>
+                    <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white">
+                      <HelpCircle className="mr-1" size={18} />
+                      I Still Need Help
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

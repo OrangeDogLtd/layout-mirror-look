@@ -93,7 +93,7 @@ const LabelLayoutOptions = () => {
   const [orientation, setOrientation] = useState("landscape");
   const [backgroundColour, setBackgroundColour] = useState("white");
   const [accentColour, setAccentColour] = useState("orange");
-  const [selectedLayout, setSelectedLayout] = useState("orange-circle");
+  const [selectedLayout, setSelectedLayout] = useState("landscape-option-1");
   const [logoSizeFacingOut, setLogoSizeFacingOut] = useState([50]);
   const [logoSizeFacingIn, setLogoSizeFacingIn] = useState([50]);
   
@@ -126,10 +126,10 @@ const LabelLayoutOptions = () => {
             >
               <div>
                 <Label
-                  htmlFor="orange-circle"
+                  htmlFor="landscape-option-1"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "orange-circle" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "landscape-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -137,16 +137,16 @@ const LabelLayoutOptions = () => {
                       Orange Circle Service Label
                     </div>
                   </div>
-                  <RadioGroupItem value="orange-circle" id="orange-circle" className="sr-only" />
+                  <RadioGroupItem value="landscape-option-1" id="landscape-option-1" className="sr-only" />
                 </Label>
               </div>
               
               <div>
                 <Label
-                  htmlFor="black-banner"
+                  htmlFor="landscape-option-2"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "black-banner" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "landscape-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -154,16 +154,16 @@ const LabelLayoutOptions = () => {
                       Black Banner Service Label
                     </div>
                   </div>
-                  <RadioGroupItem value="black-banner" id="black-banner" className="sr-only" />
+                  <RadioGroupItem value="landscape-option-2" id="landscape-option-2" className="sr-only" />
                 </Label>
               </div>
               
               <div>
                 <Label
-                  htmlFor="split-panel"
+                  htmlFor="landscape-option-3"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "split-panel" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "landscape-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -171,7 +171,7 @@ const LabelLayoutOptions = () => {
                       Split Panel Service Label
                     </div>
                   </div>
-                  <RadioGroupItem value="split-panel" id="split-panel" className="sr-only" />
+                  <RadioGroupItem value="landscape-option-3" id="landscape-option-3" className="sr-only" />
                 </Label>
               </div>
             </RadioGroup>
@@ -185,10 +185,10 @@ const LabelLayoutOptions = () => {
             >
               <div>
                 <Label
-                  htmlFor="portrait-standard"
+                  htmlFor="portrait-option-1"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-standard" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "portrait-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -196,16 +196,16 @@ const LabelLayoutOptions = () => {
                       Portrait Standard
                     </div>
                   </div>
-                  <RadioGroupItem value="portrait-standard" id="portrait-standard" className="sr-only" />
+                  <RadioGroupItem value="portrait-option-1" id="portrait-option-1" className="sr-only" />
                 </Label>
               </div>
               
               <div>
                 <Label
-                  htmlFor="portrait-vertical"
+                  htmlFor="portrait-option-2"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-vertical" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "portrait-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -213,16 +213,16 @@ const LabelLayoutOptions = () => {
                       Portrait Vertical Split
                     </div>
                   </div>
-                  <RadioGroupItem value="portrait-vertical" id="portrait-vertical" className="sr-only" />
+                  <RadioGroupItem value="portrait-option-2" id="portrait-option-2" className="sr-only" />
                 </Label>
               </div>
               
               <div>
                 <Label
-                  htmlFor="portrait-horizontal"
+                  htmlFor="portrait-option-3"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-horizontal" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedLayout === "portrait-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -230,7 +230,7 @@ const LabelLayoutOptions = () => {
                       Portrait Horizontal Split
                     </div>
                   </div>
-                  <RadioGroupItem value="portrait-horizontal" id="portrait-horizontal" className="sr-only" />
+                  <RadioGroupItem value="portrait-option-3" id="portrait-option-3" className="sr-only" />
                 </Label>
               </div>
             </RadioGroup>
