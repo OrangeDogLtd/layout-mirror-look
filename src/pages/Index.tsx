@@ -1,9 +1,9 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload } from "lucide-react";
 import LabelPreview from "@/components/LabelPreview";
 import UploadLogoSection from "@/components/UploadLogoSection";
 import LabelLayoutOptions from "@/components/LabelLayoutOptions";
+import TextInputSection from "@/components/TextInputSection";
 
 const Index = () => {
   return (
@@ -30,6 +30,7 @@ const Index = () => {
               <div className="p-6 space-y-8">
                 <UploadLogoSection />
                 <LabelLayoutOptions />
+                <TextInputSection />
               </div>
             </div>
           </div>

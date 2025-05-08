@@ -21,6 +21,7 @@ const LabelPreview = () => {
             </div>
             <div className="h-48 border-2 border-gray-200 rounded-b-lg flex items-center justify-center">
               {/* Preview content would go here */}
+              <div className="text-center text-gray-400">Preview will appear here</div>
             </div>
           </div>
           
@@ -31,6 +32,7 @@ const LabelPreview = () => {
             </div>
             <div className="h-48 border-2 border-gray-200 rounded-b-lg flex items-center justify-center">
               {/* Preview content would go here */}
+              <div className="text-center text-gray-400">Preview will appear here</div>
             </div>
           </div>
           <div className="text-center text-sm text-gray-500">Label size: 68x45mm</div>
@@ -42,6 +44,7 @@ const LabelPreview = () => {
           </div>
           <div className="h-48 border-2 border-gray-200 rounded-b-lg flex items-center justify-center">
             {/* Preview content would go here */}
+            <div className="text-center text-gray-400">Preview will appear here</div>
           </div>
           <div className="text-center text-sm text-gray-500">Label size: 68x45mm</div>
         </TabsContent>
@@ -52,6 +55,7 @@ const LabelPreview = () => {
           </div>
           <div className="h-48 border-2 border-gray-200 rounded-b-lg flex items-center justify-center">
             {/* Preview content would go here */}
+            <div className="text-center text-gray-400">Preview will appear here</div>
           </div>
           <div className="text-center text-sm text-gray-500">Label size: 68x45mm</div>
         </TabsContent>
