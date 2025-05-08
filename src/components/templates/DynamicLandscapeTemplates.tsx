@@ -77,13 +77,68 @@ export const DynamicLandscapeOption2: React.FC<DynamicTemplateProps> = ({
   const bgHex = getColorHex(backgroundColor);
   const accentHex = getColorHex(accentColor);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const fabricInitialized = useRef(false);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!canvasRef.current || fabricInitialized.current) return;
 
-    const canvas = new (window as any).fabric.Canvas(canvasRef.current);
-    canvas.setWidth(400);
-    canvas.setHeight(250);
+    // Load Fabric.js script if it's not already loaded
+    const loadFabricJS = async () => {
+      try {
+        // Check if fabric is already available globally
+        if (typeof window !== 'undefined' && !(window as any).fabric) {
+          const script = document.createElement('script');
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js';
+          script.async = true;
+          
+          // Create a promise to wait for the script to load
+          const loadPromise = new Promise<void>((resolve, reject) => {
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error('Failed to load Fabric.js'));
+          });
+          
+          document.body.appendChild(script);
+          await loadPromise;
+        }
+        
+        initializeCanvas();
+        fabricInitialized.current = true;
+      } catch (error) {
+        console.error("Error loading Fabric.js:", error);
+      }
+    };
+    
+    loadFabricJS();
+    
+    return () => {
+      // Clean up canvas when component unmounts
+      if (fabricInitialized.current && canvasRef.current && (window as any).fabric) {
+        const fabricCanvas = (window as any).fabric.Canvas.__canvas && 
+                            (window as any).fabric.Canvas.__canvas[canvasRef.current.id];
+        if (fabricCanvas) {
+          fabricCanvas.dispose();
+        }
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    // Re-render canvas when props change
+    if (fabricInitialized.current) {
+      initializeCanvas();
+    }
+  }, [backgroundColor, accentColor, logo, logoSize]);
+
+  const initializeCanvas = () => {
+    if (!canvasRef.current || typeof (window as any).fabric === 'undefined') return;
+
+    const canvas = new (window as any).fabric.Canvas(canvasRef.current, {
+      width: 400,
+      height: 250
+    });
+    
+    // Clear and set background color
+    canvas.clear();
     canvas.setBackgroundColor(bgHex, canvas.renderAll.bind(canvas));
 
     // Grey rounded rectangle (service box)
@@ -131,21 +186,11 @@ export const DynamicLandscapeOption2: React.FC<DynamicTemplateProps> = ({
         canvas.renderAll();
       });
     }
-
-    return () => {
-      canvas.dispose();
-    };
-  }, [backgroundColor, accentColor, logo, logoSize, bgHex, accentHex]);
+  };
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-white">
-      <canvas ref={canvasRef} className="w-full h-full" />
-      {!window.fabric && (
-        <script 
-          src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js" 
-          async
-        />
-      )}
+      <canvas ref={canvasRef} id="labelCanvas" className="w-full h-full" />
     </div>
   );
 };
