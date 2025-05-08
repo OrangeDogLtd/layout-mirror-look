@@ -13,16 +13,16 @@ const colourOptions = [
   { name: "White", value: "white", hex: "#FFFFFF", border: true },
   { name: "Gray", value: "gray", hex: "#8E9196" },
   { name: "Black", value: "black", hex: "#000000" },
-  { name: "Dark Blue", value: "dark-blue", hex: "#0A4D6D" }, // Darker blue
-  { name: "Green", value: "green", hex: "#6DB56A" }, // Darker green
+  { name: "Dark Blue", value: "dark-blue", hex: "#063954" }, // Darker blue
+  { name: "Green", value: "green", hex: "#4a8a48" }, // Darker green
   { name: "Purple", value: "purple", hex: "#9b87f5" },
   { name: "Orange", value: "orange", hex: "#F97316" },
   { name: "Light Pink", value: "light-pink", hex: "#FFDEE2" },
-  { name: "Brown", value: "brown", hex: "#6D4C41" }, // Corrected brown
+  { name: "Brown", value: "brown", hex: "#8B4513" }, // Corrected brown
   { name: "Baby Blue", value: "baby-blue", hex: "#1EAEDB" },
   { name: "Red", value: "red", hex: "#ea384c" },
   { name: "Yellow", value: "yellow", hex: "#FEF7CD" },
-  { name: "Lime Green", value: "lime-green", hex: "#8BC34A" }, // Corrected lime green
+  { name: "Lime Green", value: "lime-green", hex: "#8BC34A" },
 ];
 
 // Colour Circle component for the radio items
@@ -30,7 +30,7 @@ const ColourCircle = ({ color, isSelected, border }) => (
   <div
     className={cn(
       "w-8 h-8 rounded-full transition-all",
-      isSelected ? "ring-2 ring-offset-2 ring-[#FF6422]" : "",
+      isSelected ? "ring-2 ring-offset-2 ring-[#FF6600]" : "",
       border ? "border border-gray-300" : ""
     )}
     style={{ backgroundColor: color }}
@@ -52,7 +52,7 @@ const ColourPickerPopover = ({ title, selectedColour, onSelectColour }) => {
       <h3 className="text-lg font-medium">{title}</h3>
       
       <Popover>
-        <PopoverTrigger className="w-full flex items-center justify-between border rounded-md p-2 hover:bg-gray-50">
+        <PopoverTrigger className="w-full flex items-center justify-between border rounded-md p-2 hover:bg-gray-50 bg-gray-50">
           <div className="flex items-center gap-2">
             <ColourCircle 
               color={selectedOption?.hex} 
@@ -103,9 +103,19 @@ const LabelLayoutOptions = () => {
         <h3 className="text-lg font-medium">Select Label Layout</h3>
         
         <Tabs defaultValue="landscape" onValueChange={setOrientation} className="w-full">
-          <TabsList className="grid grid-cols-2 w-full">
-            <TabsTrigger value="landscape">Landscape</TabsTrigger>
-            <TabsTrigger value="portrait">Portrait</TabsTrigger>
+          <TabsList className="grid grid-cols-2 w-full bg-gray-100">
+            <TabsTrigger 
+              value="landscape" 
+              className="data-[state=active]:bg-[#FF6600] data-[state=active]:text-white"
+            >
+              Landscape
+            </TabsTrigger>
+            <TabsTrigger 
+              value="portrait" 
+              className="data-[state=active]:bg-[#FF6600] data-[state=active]:text-white"
+            >
+              Portrait
+            </TabsTrigger>
           </TabsList>
           
           <TabsContent value="landscape" className="pt-4">
@@ -119,7 +129,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="orange-circle"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "orange-circle" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "orange-circle" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -136,7 +146,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="black-banner"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "black-banner" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "black-banner" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -153,7 +163,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="split-panel"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "split-panel" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "split-panel" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -178,7 +188,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-standard"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-standard" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "portrait-standard" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -195,7 +205,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-vertical"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-vertical" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "portrait-vertical" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">
@@ -212,7 +222,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-horizontal"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-horizontal" ? "border-[#FF6422] ring-2 ring-[#FF6422]/20" : "border-gray-200"
+                    selectedLayout === "portrait-horizontal" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="h-32 relative">

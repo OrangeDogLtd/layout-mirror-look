@@ -22,7 +22,7 @@ const Index = () => {
           <div className="flex-1">
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
               {/* Orange Header */}
-              <div className="bg-[#FF6422] text-white p-6 text-center">
+              <div className="bg-[#FF6600] text-white p-6 text-center">
                 <h2 className="text-2xl font-bold mb-2">Design Your Label</h2>
                 <p>Upload your logo and fill in your business information</p>
               </div>
@@ -32,6 +32,19 @@ const Index = () => {
                 <UploadLogoSection />
                 <LabelLayoutOptions />
                 <TextInputSection />
+                
+                {/* Action Buttons - Centered to the design side */}
+                <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                  <Button variant="default" size="lg" className="bg-[#FF6600] hover:bg-[#e05a00]">
+                    I love it, order now
+                  </Button>
+                  <Button variant="secondary" size="lg">
+                    Export label design
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    I still need help
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -42,19 +55,6 @@ const Index = () => {
               <LabelPreview />
             </div>
           </div>
-        </div>
-        
-        {/* Action Buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
-          <Button variant="default" size="lg" className="bg-[#FF6422] hover:bg-[#e05a1f]">
-            I love it, order now
-          </Button>
-          <Button variant="secondary" size="lg">
-            Export label design
-          </Button>
-          <Button variant="outline" size="lg">
-            I still need help
-          </Button>
         </div>
       </div>
     </div>
