@@ -5,7 +5,7 @@ import UploadLogoSection from "@/components/UploadLogoSection";
 import LabelLayoutOptions from "@/components/LabelLayoutOptions";
 import TextInputSection from "@/components/TextInputSection";
 import { Button } from "@/components/ui/button";
-import { Heart, FileArrowDown, HelpCircle } from "lucide-react";
+import { Heart, Download, HelpCircle } from "lucide-react";
 
 const Index = () => {
   return (
@@ -42,7 +42,7 @@ const Index = () => {
                   </Button>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white">
-                      <FileArrowDown className="mr-1" size={18} />
+                      <Download className="mr-1" size={18} />
                       Export Label Design
                     </Button>
                     <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white">
