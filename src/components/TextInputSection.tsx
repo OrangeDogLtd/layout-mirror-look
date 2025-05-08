@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -123,7 +122,7 @@ const TextInputSection = () => {
   
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-medium">Label Text</h3>
+      <h3 className="text-lg font-medium">Text Styling</h3>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">

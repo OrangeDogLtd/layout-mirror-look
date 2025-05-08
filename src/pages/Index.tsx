@@ -4,6 +4,7 @@ import LabelPreview from "@/components/LabelPreview";
 import UploadLogoSection from "@/components/UploadLogoSection";
 import LabelLayoutOptions from "@/components/LabelLayoutOptions";
 import TextInputSection from "@/components/TextInputSection";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   return (
@@ -36,9 +37,24 @@ const Index = () => {
           </div>
 
           {/* Right Column - Preview */}
-          <div className="w-full lg:w-[400px]">
-            <LabelPreview />
+          <div className="w-full lg:w-[400px] relative">
+            <div className="lg:sticky lg:top-8">
+              <LabelPreview />
+            </div>
           </div>
+        </div>
+        
+        {/* Action Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+          <Button variant="default" size="lg" className="bg-[#FF6422] hover:bg-[#e05a1f]">
+            I love it, order now
+          </Button>
+          <Button variant="secondary" size="lg">
+            Export label design
+          </Button>
+          <Button variant="outline" size="lg">
+            I still need help
+          </Button>
         </div>
       </div>
     </div>

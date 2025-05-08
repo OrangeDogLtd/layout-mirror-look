@@ -6,22 +6,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 
-// Define the CMYK colour options
+// Define the CMYK colour options with corrected values
 const colourOptions = [
   { name: "White", value: "white", hex: "#FFFFFF", border: true },
   { name: "Gray", value: "gray", hex: "#8E9196" },
   { name: "Black", value: "black", hex: "#000000" },
-  { name: "Dark Blue", value: "dark-blue", hex: "#0EA5E9" },
-  { name: "Green", value: "green", hex: "#86D982" }, // Corrected Green color
+  { name: "Dark Blue", value: "dark-blue", hex: "#0A4D6D" }, // Darker blue
+  { name: "Green", value: "green", hex: "#6DB56A" }, // Darker green
   { name: "Purple", value: "purple", hex: "#9b87f5" },
   { name: "Orange", value: "orange", hex: "#F97316" },
   { name: "Light Pink", value: "light-pink", hex: "#FFDEE2" },
-  { name: "Brown", value: "brown", hex: "#403E43" },
+  { name: "Brown", value: "brown", hex: "#6D4C41" }, // Corrected brown
   { name: "Baby Blue", value: "baby-blue", hex: "#1EAEDB" },
   { name: "Red", value: "red", hex: "#ea384c" },
   { name: "Yellow", value: "yellow", hex: "#FEF7CD" },
-  { name: "Lime Green", value: "lime-green", hex: "#A9DF49" }, // Corrected Lime Green color
+  { name: "Lime Green", value: "lime-green", hex: "#8BC34A" }, // Corrected lime green
 ];
 
 // Colour Circle component for the radio items
@@ -93,6 +94,8 @@ const LabelLayoutOptions = () => {
   const [backgroundColour, setBackgroundColour] = useState("white");
   const [accentColour, setAccentColour] = useState("orange");
   const [selectedLayout, setSelectedLayout] = useState("orange-circle");
+  const [logoSizeFacingOut, setLogoSizeFacingOut] = useState([50]);
+  const [logoSizeFacingIn, setLogoSizeFacingIn] = useState([50]);
   
   return (
     <div className="space-y-8">
@@ -238,6 +241,53 @@ const LabelLayoutOptions = () => {
           selectedColour={accentColour}
           onSelectColour={setAccentColour}
         />
+      </div>
+
+      {/* Logo Size Section with Sliders */}
+      <div className="space-y-6">
+        <h3 className="text-lg font-medium">Logo Size</h3>
+        
+        <div className="space-y-8">
+          <div className="space-y-2">
+            <div className="flex justify-between">
+              <Label htmlFor="logo-size-facing-out">Logo Size (Facing Out)</Label>
+              <span className="text-sm text-gray-500">{logoSizeFacingOut}%</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-gray-500">Small</span>
+              <Slider
+                id="logo-size-facing-out"
+                value={logoSizeFacingOut}
+                onValueChange={setLogoSizeFacingOut}
+                min={10}
+                max={100}
+                step={1}
+                className="flex-1"
+              />
+              <span className="text-xs text-gray-500">Large</span>
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <div className="flex justify-between">
+              <Label htmlFor="logo-size-facing-in">Logo Size (Facing In)</Label>
+              <span className="text-sm text-gray-500">{logoSizeFacingIn}%</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-gray-500">Small</span>
+              <Slider
+                id="logo-size-facing-in"
+                value={logoSizeFacingIn}
+                onValueChange={setLogoSizeFacingIn}
+                min={10}
+                max={100}
+                step={1}
+                className="flex-1"
+              />
+              <span className="text-xs text-gray-500">Large</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
