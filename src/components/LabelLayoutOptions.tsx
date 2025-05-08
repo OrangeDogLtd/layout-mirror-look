@@ -139,7 +139,9 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "landscape-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <StaticLandscapeOption1 />
+                  <div className="p-3 bg-white">
+                    <StaticLandscapeOption1 />
+                  </div>
                   <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
                     Option 1
                   </div>
@@ -155,7 +157,9 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "landscape-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <StaticLandscapeOption2 />
+                  <div className="p-3 bg-white">
+                    <StaticLandscapeOption2 />
+                  </div>
                   <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
                     Option 2
                   </div>
@@ -171,7 +175,9 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "landscape-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <StaticLandscapeOption3 />
+                  <div className="p-3 bg-white">
+                    <StaticLandscapeOption3 />
+                  </div>
                   <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
                     Option 3
                   </div>
@@ -195,9 +201,11 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "portrait-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 1
+                  <div className="p-3 bg-white">
+                    <div className="aspect-square bg-white relative">
+                      <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
+                        Option 1
+                      </div>
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-1" id="portrait-option-1" className="sr-only" />
@@ -212,9 +220,11 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "portrait-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 2
+                  <div className="p-3 bg-white">
+                    <div className="aspect-square bg-white relative">
+                      <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
+                        Option 2
+                      </div>
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-2" id="portrait-option-2" className="sr-only" />
@@ -229,9 +239,11 @@ const LabelLayoutOptions = () => {
                     selectedTemplate === "portrait-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 3
+                  <div className="p-3 bg-white">
+                    <div className="aspect-square bg-white relative">
+                      <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
+                        Option 3
+                      </div>
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-3" id="portrait-option-3" className="sr-only" />

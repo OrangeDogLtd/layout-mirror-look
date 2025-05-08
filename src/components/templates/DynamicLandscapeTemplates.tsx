@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 interface DynamicTemplateProps {
@@ -76,35 +76,75 @@ export const DynamicLandscapeOption2: React.FC<DynamicTemplateProps> = ({
 }) => {
   const bgHex = getColorHex(backgroundColor);
   const accentHex = getColorHex(accentColor);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const canvas = new (window as any).fabric.Canvas(canvasRef.current);
+    canvas.setWidth(400);
+    canvas.setHeight(250);
+    canvas.setBackgroundColor(bgHex, canvas.renderAll.bind(canvas));
+
+    // Grey rounded rectangle (service box)
+    const serviceBox = new (window as any).fabric.Rect({
+      left: 20,
+      top: 40,
+      width: 360,
+      height: 80,
+      rx: 8,
+      ry: 8,
+      fill: '#E6E7E8',
+      stroke: '#373435',
+      strokeWidth: 1
+    });
+
+    // Accent colored circle
+    const circle = new (window as any).fabric.Circle({
+      left: 320,
+      top: 180,
+      radius: 30,
+      fill: accentHex,
+      stroke: '#373435',
+      strokeWidth: 1
+    });
+
+    // Add all objects to canvas
+    canvas.add(serviceBox);
+    canvas.add(circle);
+
+    // Add logo if provided
+    if (logo) {
+      (window as any).fabric.Image.fromURL(logo, (img: any) => {
+        const maxWidth = 150 * (logoSize / 100);
+        const scale = Math.min(maxWidth / img.width, 60 / img.height);
+        
+        img.scale(scale);
+        img.set({
+          left: 40,
+          top: 160,
+          originX: 'left',
+          originY: 'center'
+        });
+        
+        canvas.add(img);
+        canvas.renderAll();
+      });
+    }
+
+    return () => {
+      canvas.dispose();
+    };
+  }, [backgroundColor, accentColor, logo, logoSize, bgHex, accentHex]);
 
   return (
-    <div className="w-full h-full relative">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
-        style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
-        viewBox="0 0 7433.34 4919.12">
-        <g id="Layer_x0020_1">
-          <path className="fil0" d="M437.24 0l6558.85 0c240.49,0 437.24,196.76 437.24,437.24l0 4044.63c0,240.48 -196.75,437.24 -437.24,437.24l-6558.85 0c-240.49,0 -437.24,-196.76 -437.24,-437.24l0 -4044.63c0,-240.48 196.75,-437.24 437.24,-437.24z" fill={bgHex}/>
-          <path className="fil1" d="M446.88 0l6539.59 0c122.9,0 234.63,50.21 315.61,131.07 80.99,80.86 131.26,192.41 131.26,315.14l0 4026.71c0,122.73 -50.27,234.28 -131.26,315.14 -80.98,80.86 -192.71,131.07 -315.61,131.07l-6539.59 0c-122.9,0 -234.63,-50.21 -315.61,-131.07 -80.99,-80.86 -131.26,-192.41 -131.26,-315.14l0 -4026.71c0,-122.73 50.27,-234.28 131.26,-315.14 80.98,-80.86 192.71,-131.07 315.61,-131.07z" fill="#373435" fillRule="nonzero"/>
-          <path className="fil2" d="M893.45 3602.03l5646.43 0c235.9,0 428.87,192.98 428.87,428.86l0 0.02c0,235.89 -192.97,428.86 -428.87,428.86l-5646.43 0c-235.89,0 -428.87,-192.97 -428.87,-428.86l0 -0.02c0,-235.88 192.98,-428.86 428.87,-428.86z" fill="#E6E7E8"/>
-          <path className="fil3" d="M6531.97 3655.61c207.27,0 375.3,168.03 375.3,375.29 0,207.27 -168.03,375.3 -375.3,375.3 -207.27,0 -375.3,-168.03 -375.3,-375.3 0,-207.26 168.03,-375.29 375.3,-375.29z" fill={accentHex}/>
-          <path className="fil2" d="M893.45 2684.34l5646.43 0c235.9,0 428.87,192.99 428.87,428.87l0 0.01c0,235.9 -192.97,428.87 -428.87,428.87l-5646.43 0c-235.89,0 -428.87,-192.97 -428.87,-428.87l0 -0.01c0,-235.88 192.98,-428.87 428.87,-428.87z" fill="#E6E7E8"/>
-          <line className="str0" x1="4140.6" y1="3353.84" x2="4394.34" y2="2872.59" stroke="#373435" strokeWidth="16.4" strokeMiterlimit="22.9256"/>
-          <line className="str0" x1="5400.04" y1="3353.84" x2="5653.78" y2="2872.59" stroke="#373435" strokeWidth="16.4" strokeMiterlimit="22.9256"/>
-          <path className="fil3" d="M897.64 2737.92c207.27,0 375.3,168.03 375.3,375.3 0,207.27 -168.03,375.3 -375.3,375.3 -207.26,0 -375.3,-168.03 -375.3,-375.3 0,-207.27 168.04,-375.3 375.3,-375.3z" fill={accentHex}/>
-        </g>
-      </svg>
-
-      {logo && (
-        <div 
-          className="absolute top-1/2 left-[calc(25%+450px)] transform -translate-x-1/2 -translate-y-1/2"
-          style={{ 
-            width: `${logoSize}%`,
-            maxWidth: '70%',
-            maxHeight: '60%'
-          }}
-        >
-          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
-        </div>
+    <div className="w-full h-full flex items-center justify-center bg-white">
+      <canvas ref={canvasRef} className="w-full h-full" />
+      {!window.fabric && (
+        <script 
+          src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js" 
+          async
+        />
       )}
     </div>
   );
@@ -167,7 +207,7 @@ export const DynamicFacingOutTemplate: React.FC<DynamicTemplateProps> = ({
         style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
         viewBox="0 0 2015.49 1333.78">
         <g id="Layer_x0020_1">
-          <rect className="fil0" x="0" width="2015.49" height="1333.78" rx="93.42" ry="118.56" fill={bgHex}/>
+          <rect className="fil0" x="0" width="2015.49" height="1333.78" rx="93.42" ry="118.56" fill="#FEFEFE"/>
           <path className="fil1" d="M121.17 0l1773.16 0c33.32,0 63.62,13.61 85.58,35.54 21.96,21.92 35.59,52.17 35.59,85.45l0 1091.81c0,33.28 -13.63,63.52 -35.59,85.45 -21.96,21.92 -52.25,35.54 -85.58,35.54l-1773.16 0c-33.32,0 -63.62,-13.61 -85.58,-35.54 -21.96,-21.92 -35.59,-52.17 -35.59,-85.45l0 -1091.81c0,-33.28 13.63,-63.52 35.59,-85.45 21.96,-21.92 52.25,-35.54 85.58,-35.54zm1773.16 5.9l-1773.16 0c-31.69,0 -60.51,12.95 -81.4,33.81 -20.89,20.86 -33.86,49.63 -33.86,81.28l0 1091.81c0,31.65 12.97,60.42 33.86,81.28 20.89,20.85 49.7,33.81 81.4,33.81l1773.16 0c31.69,0 60.51,-12.95 81.4,-33.81 20.89,-20.86 33.86,-49.63 33.86,-81.28l0 -1091.81c0,-31.65 -12.97,-60.42 -33.86,-81.28 -20.89,-20.85 -49.7,-33.81 -81.4,-33.81z" fill="#373435"/>
         </g>
       </svg>
