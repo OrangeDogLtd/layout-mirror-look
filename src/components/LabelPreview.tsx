@@ -1,7 +1,22 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLogo } from "@/context/LogoContext";
 
 const LabelPreview = () => {
+  const { logo } = useLogo();
+  
+  const renderPreviewContent = () => {
+    if (logo) {
+      return (
+        <div className="flex flex-col items-center justify-center w-full h-full p-4">
+          <img src={logo} alt="Your logo" className="max-h-32 max-w-full object-contain" />
+        </div>
+      );
+    } else {
+      return <div className="text-center text-gray-400">Preview will appear here</div>;
+    }
+  };
+
   return (
     <div className="space-y-4 sticky top-8">
       <h3 className="text-lg font-bold">Label Preview</h3>
@@ -35,8 +50,7 @@ const LabelPreview = () => {
               Facing Out
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {/* Preview content would go here */}
-              <div className="text-center text-gray-400">Preview will appear here</div>
+              {renderPreviewContent()}
             </div>
           </div>
           
@@ -46,8 +60,7 @@ const LabelPreview = () => {
               Facing In
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {/* Preview content would go here */}
-              <div className="text-center text-gray-400">Preview will appear here</div>
+              {renderPreviewContent()}
             </div>
           </div>
           <div className="text-center text-sm text-gray-500">Label size: 68x45mm</div>
@@ -59,8 +72,7 @@ const LabelPreview = () => {
               Facing Out
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {/* Preview content would go here */}
-              <div className="text-center text-gray-400">Preview will appear here</div>
+              {renderPreviewContent()}
             </div>
           </div>
           <div className="text-center text-sm text-gray-500 mt-4">Label size: 68x45mm</div>
@@ -72,8 +84,7 @@ const LabelPreview = () => {
               Facing In
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {/* Preview content would go here */}
-              <div className="text-center text-gray-400">Preview will appear here</div>
+              {renderPreviewContent()}
             </div>
           </div>
           <div className="text-center text-sm text-gray-500 mt-4">Label size: 68x45mm</div>
