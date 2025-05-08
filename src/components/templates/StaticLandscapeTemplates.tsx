@@ -4,7 +4,7 @@ import React from 'react';
 export const StaticLandscapeOption1 = () => (
   <div className="aspect-square bg-white flex items-center justify-center overflow-hidden">
     <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
-      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
       viewBox="0 0 7433.34 4919.12">
       <g id="Layer_x0020_1">
         <rect className="fil0" x="0" y="-0" width="7433.34" height="4919.12" rx="344.56" ry="437.26" fill="#FEFEFE"/>
@@ -19,7 +19,7 @@ export const StaticLandscapeOption1 = () => (
 export const StaticLandscapeOption2 = () => (
   <div className="aspect-square bg-white flex items-center justify-center overflow-hidden">
     <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
-      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
       viewBox="0 0 7433.34 4919.12">
       <g id="Layer_x0020_1">
         <path className="fil0" d="M437.24 0l6558.85 0c240.49,0 437.24,196.76 437.24,437.24l0 4044.63c0,240.48 -196.75,437.24 -437.24,437.24l-6558.85 0c-240.49,0 -437.24,-196.76 -437.24,-437.24l0 -4044.63c0,-240.48 196.75,-437.24 437.24,-437.24z" fill="#FEFEFE"/>
@@ -38,7 +38,7 @@ export const StaticLandscapeOption2 = () => (
 export const StaticLandscapeOption3 = () => (
   <div className="aspect-square bg-white flex items-center justify-center overflow-hidden">
     <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
-      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
       viewBox="0 0 7433.34 4919.12">
       <g id="Layer_x0020_1">
         <path className="fil0" d="M437.24 0l6558.85 0c240.49,0 437.24,196.76 437.24,437.24l0 4044.63c0,240.48 -196.75,437.24 -437.24,437.24l-6558.85 0c-240.49,0 -437.24,-196.76 -437.24,-437.24l0 -4044.63c0,-240.48 196.75,-437.24 437.24,-437.24z" fill="#FEFEFE"/>

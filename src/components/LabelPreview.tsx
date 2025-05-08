@@ -1,19 +1,59 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLogo } from "@/context/LogoContext";
+import { useTemplate } from "@/context/LabelTemplateContext";
+import { 
+  DynamicLandscapeOption1,
+  DynamicLandscapeOption2,
+  DynamicLandscapeOption3 
+} from "./templates/DynamicLandscapeTemplates";
 
 const LabelPreview = () => {
   const { logo } = useLogo();
+  const { selectedTemplate, backgroundColor, accentColor } = useTemplate();
   
-  const renderPreviewContent = () => {
-    if (logo) {
-      return (
-        <div className="flex flex-col items-center justify-center w-full h-full p-4">
-          <img src={logo} alt="Your logo" className="max-h-32 max-w-full object-contain" />
-        </div>
-      );
-    } else {
-      return <div className="text-center text-gray-400">Preview will appear here</div>;
+  // Default size for the logo in preview
+  const logoSize = 50;
+  
+  // Render the appropriate template based on the selection
+  const renderTemplate = () => {
+    switch (selectedTemplate) {
+      case "landscape-option-1":
+        return (
+          <DynamicLandscapeOption1 
+            backgroundColor={backgroundColor} 
+            accentColor={accentColor} 
+            logo={logo} 
+            logoSize={logoSize}
+          />
+        );
+      case "landscape-option-2":
+        return (
+          <DynamicLandscapeOption2 
+            backgroundColor={backgroundColor} 
+            accentColor={accentColor} 
+            logo={logo} 
+            logoSize={logoSize}
+          />
+        );
+      case "landscape-option-3":
+        return (
+          <DynamicLandscapeOption3 
+            backgroundColor={backgroundColor} 
+            accentColor={accentColor} 
+            logo={logo} 
+            logoSize={logoSize}
+          />
+        );
+      default:
+        return (
+          <DynamicLandscapeOption1 
+            backgroundColor={backgroundColor} 
+            accentColor={accentColor} 
+            logo={logo} 
+            logoSize={logoSize}
+          />
+        );
     }
   };
 
@@ -50,7 +90,9 @@ const LabelPreview = () => {
               Facing Out
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {renderPreviewContent()}
+              <div className="w-full h-full p-2">
+                {renderTemplate()}
+              </div>
             </div>
           </div>
           
@@ -60,7 +102,9 @@ const LabelPreview = () => {
               Facing In
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {renderPreviewContent()}
+              <div className="w-full h-full p-2">
+                {renderTemplate()}
+              </div>
             </div>
           </div>
           <div className="text-center text-sm text-gray-500">Label size: 68x45mm</div>
@@ -72,7 +116,9 @@ const LabelPreview = () => {
               Facing Out
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {renderPreviewContent()}
+              <div className="w-full h-full p-2">
+                {renderTemplate()}
+              </div>
             </div>
           </div>
           <div className="text-center text-sm text-gray-500 mt-4">Label size: 68x45mm</div>
@@ -84,7 +130,9 @@ const LabelPreview = () => {
               Facing In
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
-              {renderPreviewContent()}
+              <div className="w-full h-full p-2">
+                {renderTemplate()}
+              </div>
             </div>
           </div>
           <div className="text-center text-sm text-gray-500 mt-4">Label size: 68x45mm</div>
