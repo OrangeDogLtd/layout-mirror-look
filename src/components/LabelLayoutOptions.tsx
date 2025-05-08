@@ -1,3 +1,4 @@
+
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -131,8 +132,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "landscape-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 1
                     </div>
                   </div>
@@ -148,8 +149,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "landscape-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 2
                     </div>
                   </div>
@@ -165,8 +166,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "landscape-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 3
                     </div>
                   </div>
@@ -190,8 +191,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "portrait-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 1
                     </div>
                   </div>
@@ -207,8 +208,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "portrait-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 2
                     </div>
                   </div>
@@ -224,8 +225,8 @@ const LabelLayoutOptions = () => {
                     selectedLayout === "portrait-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="h-32 relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
+                  <div className="aspect-square bg-white relative">
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
                       Option 3
                     </div>
                   </div>

@@ -81,13 +81,13 @@ const TextStyleControls = ({ label, font, setFont, size, setSize, weight, setWei
 const TextInputSection = () => {
   // Phone number styling state
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [phoneFont, setPhoneFont] = useState("bebas-neue");
-  const [phoneSize, setPhoneSize] = useState("large");
+  const [phoneFont, setPhoneFont] = useState("arial");
+  const [phoneSize, setPhoneSize] = useState("medium");
   const [phoneWeight, setPhoneWeight] = useState("normal");
   
   // Secondary text styling state
   const [secondaryText, setSecondaryText] = useState("");
-  const [secondaryFont, setSecondaryFont] = useState("bebas-neue");
+  const [secondaryFont, setSecondaryFont] = useState("arial");
   const [secondarySize, setSecondarySize] = useState("medium");
   const [secondaryWeight, setSecondaryWeight] = useState("normal");
   
@@ -100,7 +100,7 @@ const TextInputSection = () => {
       case "arial": return "Arial, sans-serif";
       case "helvetica": return "Helvetica, sans-serif";
       case "verdana": return "Verdana, sans-serif";
-      default: return "'Bebas Neue', sans-serif";
+      default: return "Arial, sans-serif";
     }
   };
   
