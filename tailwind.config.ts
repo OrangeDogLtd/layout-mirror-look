@@ -21,6 +21,11 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
+				'gotham': ['Gotham', 'sans-serif'],
+				'futura': ['Futura', 'sans-serif'],
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'swis-cn': ['Swis CN', 'sans-serif'],
+				'impact': ['Impact', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

@@ -8,6 +8,11 @@ import { cn } from "@/lib/utils";
 // Font options
 const fontOptions = [
   { label: "Bebas Neue", value: "bebas-neue" },
+  { label: "Gotham", value: "gotham" },
+  { label: "Futura", value: "futura" },
+  { label: "Montserrat", value: "montserrat" },
+  { label: "Swiss CN", value: "swiss-cn" },
+  { label: "Impact", value: "impact" },
   { label: "Arial", value: "arial" },
   { label: "Helvetica", value: "helvetica" },
   { label: "Verdana", value: "verdana" },
@@ -81,7 +86,7 @@ const TextInputSection = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneFont, setPhoneFont] = useState("bebas-neue");
   const [phoneSize, setPhoneSize] = useState("large");
-  const [phoneWeight, setPhoneWeight] = useState("bold");
+  const [phoneWeight, setPhoneWeight] = useState("normal"); // Changed from "bold" to "normal"
   
   // Secondary text styling state
   const [secondaryText, setSecondaryText] = useState("");
@@ -93,6 +98,11 @@ const TextInputSection = () => {
   const getFontFamily = (font) => {
     switch (font) {
       case "bebas-neue": return "'Bebas Neue', sans-serif";
+      case "gotham": return "'Gotham', sans-serif";
+      case "futura": return "'Futura', sans-serif";
+      case "montserrat": return "'Montserrat', sans-serif";
+      case "swiss-cn": return "'Swis CN', sans-serif";
+      case "impact": return "Impact, sans-serif";
       case "arial": return "Arial, sans-serif";
       case "helvetica": return "Helvetica, sans-serif";
       case "verdana": return "Verdana, sans-serif";

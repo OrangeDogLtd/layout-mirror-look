@@ -1,4 +1,3 @@
-
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -134,7 +133,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Orange Circle Service Label
+                      Option 1
                     </div>
                   </div>
                   <RadioGroupItem value="landscape-option-1" id="landscape-option-1" className="sr-only" />
@@ -151,7 +150,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Black Banner Service Label
+                      Option 2
                     </div>
                   </div>
                   <RadioGroupItem value="landscape-option-2" id="landscape-option-2" className="sr-only" />
@@ -168,7 +167,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Split Panel Service Label
+                      Option 3
                     </div>
                   </div>
                   <RadioGroupItem value="landscape-option-3" id="landscape-option-3" className="sr-only" />
@@ -193,7 +192,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Portrait Standard
+                      Option 1
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-1" id="portrait-option-1" className="sr-only" />
@@ -210,7 +209,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Portrait Vertical Split
+                      Option 2
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-2" id="portrait-option-2" className="sr-only" />
@@ -227,7 +226,7 @@ const LabelLayoutOptions = () => {
                 >
                   <div className="h-32 relative">
                     <div className="absolute bottom-0 left-0 right-0 bg-gray-50 p-2 text-center text-sm">
-                      Portrait Horizontal Split
+                      Option 3
                     </div>
                   </div>
                   <RadioGroupItem value="portrait-option-3" id="portrait-option-3" className="sr-only" />
