@@ -7,6 +7,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
+import { useTemplate } from "@/context/LabelTemplateContext";
+import { StaticLandscapeOption1, StaticLandscapeOption2, StaticLandscapeOption3 } from "./templates/StaticLandscapeTemplates";
 
 // Define the CMYK colour options with corrected values
 const colourOptions = [
@@ -91,9 +93,14 @@ const ColourPickerPopover = ({ title, selectedColour, onSelectColour }) => {
 
 const LabelLayoutOptions = () => {
   const [orientation, setOrientation] = useState("landscape");
-  const [backgroundColour, setBackgroundColour] = useState("white");
-  const [accentColour, setAccentColour] = useState("orange");
-  const [selectedLayout, setSelectedLayout] = useState("landscape-option-1");
+  const { 
+    selectedTemplate, 
+    setSelectedTemplate,
+    backgroundColor, 
+    setBackgroundColor,
+    accentColor, 
+    setAccentColor 
+  } = useTemplate();
   const [logoSizeFacingOut, setLogoSizeFacingOut] = useState([50]);
   const [logoSizeFacingIn, setLogoSizeFacingIn] = useState([50]);
   
@@ -120,8 +127,8 @@ const LabelLayoutOptions = () => {
           
           <TabsContent value="landscape" className="pt-4">
             <RadioGroup 
-              value={selectedLayout}
-              onValueChange={setSelectedLayout}
+              value={selectedTemplate}
+              onValueChange={setSelectedTemplate}
               className="grid grid-cols-1 md:grid-cols-3 gap-4"
             >
               <div>
@@ -129,13 +136,12 @@ const LabelLayoutOptions = () => {
                   htmlFor="landscape-option-1"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "landscape-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "landscape-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 1
-                    </div>
+                  <StaticLandscapeOption1 />
+                  <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
+                    Option 1
                   </div>
                   <RadioGroupItem value="landscape-option-1" id="landscape-option-1" className="sr-only" />
                 </Label>
@@ -146,13 +152,12 @@ const LabelLayoutOptions = () => {
                   htmlFor="landscape-option-2"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "landscape-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "landscape-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 2
-                    </div>
+                  <StaticLandscapeOption2 />
+                  <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
+                    Option 2
                   </div>
                   <RadioGroupItem value="landscape-option-2" id="landscape-option-2" className="sr-only" />
                 </Label>
@@ -163,13 +168,12 @@ const LabelLayoutOptions = () => {
                   htmlFor="landscape-option-3"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "landscape-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "landscape-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
-                  <div className="aspect-square bg-white relative">
-                    <div className="absolute bottom-0 left-0 right-0 bg-[#FF6600] p-2 text-center text-sm text-white">
-                      Option 3
-                    </div>
+                  <StaticLandscapeOption3 />
+                  <div className="bg-[#FF6600] p-2 text-center text-sm text-white">
+                    Option 3
                   </div>
                   <RadioGroupItem value="landscape-option-3" id="landscape-option-3" className="sr-only" />
                 </Label>
@@ -179,8 +183,8 @@ const LabelLayoutOptions = () => {
           
           <TabsContent value="portrait" className="pt-4">
             <RadioGroup 
-              value={selectedLayout}
-              onValueChange={setSelectedLayout}
+              value={selectedTemplate}
+              onValueChange={setSelectedTemplate}
               className="grid grid-cols-1 md:grid-cols-3 gap-4"
             >
               <div>
@@ -188,7 +192,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-option-1"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "portrait-option-1" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="aspect-square bg-white relative">
@@ -205,7 +209,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-option-2"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "portrait-option-2" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="aspect-square bg-white relative">
@@ -222,7 +226,7 @@ const LabelLayoutOptions = () => {
                   htmlFor="portrait-option-3"
                   className={cn(
                     "cursor-pointer block border rounded-md w-full overflow-hidden transition-all", 
-                    selectedLayout === "portrait-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
+                    selectedTemplate === "portrait-option-3" ? "border-[#FF6600] ring-2 ring-[#FF6600]/20" : "border-gray-200"
                   )}
                 >
                   <div className="aspect-square bg-white relative">
@@ -242,14 +246,14 @@ const LabelLayoutOptions = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ColourPickerPopover 
           title="Background Colour"
-          selectedColour={backgroundColour}
-          onSelectColour={setBackgroundColour}
+          selectedColour={backgroundColor}
+          onSelectColour={setBackgroundColor}
         />
         
         <ColourPickerPopover 
           title="Accent Colour"
-          selectedColour={accentColour}
-          onSelectColour={setAccentColour}
+          selectedColour={accentColor}
+          onSelectColour={setAccentColor}
         />
       </div>
 

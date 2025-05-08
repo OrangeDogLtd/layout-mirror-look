@@ -1,0 +1,153 @@
+
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+interface DynamicTemplateProps {
+  backgroundColor: string;
+  accentColor: string;
+  logo: string | null;
+  logoSize: number;
+}
+
+// Helper function to get color hex value
+const getColorHex = (colorName: string): string => {
+  const colorMap: Record<string, string> = {
+    "white": "#FFFFFF",
+    "gray": "#8E9196",
+    "black": "#000000",
+    "dark-blue": "#063954",
+    "green": "#4a8a48",
+    "purple": "#9b87f5",
+    "orange": "#F97316",
+    "light-pink": "#FFDEE2",
+    "brown": "#8B4513",
+    "baby-blue": "#1EAEDB",
+    "red": "#ea384c",
+    "yellow": "#FEF7CD",
+    "lime-green": "#8BC34A"
+  };
+
+  return colorMap[colorName] || "#FFFFFF";
+};
+
+export const DynamicLandscapeOption1: React.FC<DynamicTemplateProps> = ({
+  backgroundColor,
+  accentColor,
+  logo,
+  logoSize
+}) => {
+  const bgHex = getColorHex(backgroundColor);
+  const accentHex = getColorHex(accentColor);
+
+  return (
+    <div className="w-full h-full relative">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
+        style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+        viewBox="0 0 7433.34 4919.12">
+        <g id="Layer_x0020_1">
+          <rect className="fil0" x="0" y="-0" width="7433.34" height="4919.12" rx="344.56" ry="437.26" fill={bgHex}/>
+          <path className="fil1" d="M446.88 0l6539.59 0c122.9,0 234.63,50.21 315.61,131.07 80.99,80.86 131.26,192.41 131.26,315.14l0 4026.71c0,122.73 -50.27,234.28 -131.26,315.14 -80.98,80.86 -192.71,131.07 -315.61,131.07l-6539.59 0c-122.9,0 -234.63,-50.21 -315.61,-131.07 -80.99,-80.86 -131.26,-192.41 -131.26,-315.14l0 -4026.71c0,-122.73 50.27,-234.28 131.26,-315.14 80.98,-80.86 192.71,-131.07 315.61,-131.07z" fill="#373435" fillRule="nonzero"/>
+          <path className="fil2" d="M2105.1 3827.28l0 -1078.79 -1483.09 0c-39.31,0 -75.05,16.09 -100.96,42 -25.92,25.89 -42,61.64 -42,100.97l0 792.86c0,39.3 16.09,75.04 42,100.95 25.91,25.91 61.66,42 100.96,42l1483.09 0z" fill={accentHex}/>
+          <path className="fil4" d="M2105.1 3827.28l0 -1078.79 4720.71 0c39.31,0 75.05,16.09 100.96,42 25.92,25.89 42,61.64 42,100.97l0 792.86c0,39.3 -16.09,75.04 -42,100.95 -25.91,25.91 -61.66,42 -100.96,42l-4720.71 0z" fill="#E6E7E8"/>
+        </g>
+      </svg>
+
+      {logo && (
+        <div 
+          className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2"
+          style={{ 
+            width: `${logoSize}%`, 
+            maxWidth: '80%',
+            maxHeight: '60%'
+          }}
+        >
+          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const DynamicLandscapeOption2: React.FC<DynamicTemplateProps> = ({
+  backgroundColor,
+  accentColor,
+  logo,
+  logoSize
+}) => {
+  const bgHex = getColorHex(backgroundColor);
+  const accentHex = getColorHex(accentColor);
+
+  return (
+    <div className="w-full h-full relative">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
+        style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+        viewBox="0 0 7433.34 4919.12">
+        <g id="Layer_x0020_1">
+          <path className="fil0" d="M437.24 0l6558.85 0c240.49,0 437.24,196.76 437.24,437.24l0 4044.63c0,240.48 -196.75,437.24 -437.24,437.24l-6558.85 0c-240.49,0 -437.24,-196.76 -437.24,-437.24l0 -4044.63c0,-240.48 196.75,-437.24 437.24,-437.24z" fill={bgHex}/>
+          <path className="fil1" d="M446.88 0l6539.59 0c122.9,0 234.63,50.21 315.61,131.07 80.99,80.86 131.26,192.41 131.26,315.14l0 4026.71c0,122.73 -50.27,234.28 -131.26,315.14 -80.98,80.86 -192.71,131.07 -315.61,131.07l-6539.59 0c-122.9,0 -234.63,-50.21 -315.61,-131.07 -80.99,-80.86 -131.26,-192.41 -131.26,-315.14l0 -4026.71c0,-122.73 50.27,-234.28 131.26,-315.14 80.98,-80.86 192.71,-131.07 315.61,-131.07z" fill="#373435" fillRule="nonzero"/>
+          <path className="fil2" d="M893.45 3602.03l5646.43 0c235.9,0 428.87,192.98 428.87,428.86l0 0.02c0,235.89 -192.97,428.86 -428.87,428.86l-5646.43 0c-235.89,0 -428.87,-192.97 -428.87,-428.86l0 -0.02c0,-235.88 192.98,-428.86 428.87,-428.86z" fill="#E6E7E8"/>
+          <path className="fil3" d="M6531.97 3655.61c207.27,0 375.3,168.03 375.3,375.29 0,207.27 -168.03,375.3 -375.3,375.3 -207.27,0 -375.3,-168.03 -375.3,-375.3 0,-207.26 168.03,-375.29 375.3,-375.29z" fill={accentHex}/>
+          <path className="fil2" d="M893.45 2684.34l5646.43 0c235.9,0 428.87,192.99 428.87,428.87l0 0.01c0,235.9 -192.97,428.87 -428.87,428.87l-5646.43 0c-235.89,0 -428.87,-192.97 -428.87,-428.87l0 -0.01c0,-235.88 192.98,-428.87 428.87,-428.87z" fill="#E6E7E8"/>
+          <line className="str0" x1="4140.6" y1="3353.84" x2="4394.34" y2="2872.59" stroke="#373435" strokeWidth="16.4" strokeMiterlimit="22.9256"/>
+          <line className="str0" x1="5400.04" y1="3353.84" x2="5653.78" y2="2872.59" stroke="#373435" strokeWidth="16.4" strokeMiterlimit="22.9256"/>
+          <path className="fil3" d="M897.64 2737.92c207.27,0 375.3,168.03 375.3,375.3 0,207.27 -168.03,375.3 -375.3,375.3 -207.26,0 -375.3,-168.03 -375.3,-375.3 0,-207.27 168.04,-375.3 375.3,-375.3z" fill={accentHex}/>
+        </g>
+      </svg>
+
+      {logo && (
+        <div 
+          className="absolute top-1/2 left-[calc(25%+450px)] transform -translate-x-1/2 -translate-y-1/2"
+          style={{ 
+            width: `${logoSize}%`,
+            maxWidth: '70%',
+            maxHeight: '60%'
+          }}
+        >
+          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const DynamicLandscapeOption3: React.FC<DynamicTemplateProps> = ({
+  backgroundColor,
+  accentColor,
+  logo,
+  logoSize
+}) => {
+  const bgHex = getColorHex(backgroundColor);
+  const accentHex = getColorHex(accentColor);
+
+  return (
+    <div className="w-full h-full relative">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
+        style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"optimizeQuality", fillRule:"evenodd", clipRule:"evenodd"}}
+        viewBox="0 0 7433.34 4919.12">
+        <g id="Layer_x0020_1">
+          <path className="fil0" d="M437.24 0l6558.85 0c240.49,0 437.24,196.76 437.24,437.24l0 4044.63c0,240.48 -196.75,437.24 -437.24,437.24l-6558.85 0c-240.49,0 -437.24,-196.76 -437.24,-437.24l0 -4044.63c0,-240.48 196.75,-437.24 437.24,-437.24z" fill={bgHex}/>
+          <path className="fil1" d="M446.88 0l6539.59 0c122.9,0 234.63,50.21 315.61,131.07 80.99,80.86 131.26,192.41 131.26,315.14l0 4026.71c0,122.73 -50.27,234.28 -131.26,315.14 -80.98,80.86 -192.71,131.07 -315.61,131.07l-6539.59 0c-122.9,0 -234.63,-50.21 -315.61,-131.07 -80.99,-80.86 -131.26,-192.41 -131.26,-315.14l0 -4026.71c0,-122.73 50.27,-234.28 131.26,-315.14 80.98,-80.86 192.71,-131.07 315.61,-131.07z" fill="#373435" fillRule="nonzero"/>
+          <path className="fil2 str0" d="M6836.46 2922.31l-4262.57 0 -1977 0c-72.76,0 -132.3,-68.97 -132.3,-153.27l0 -410.01c0,-84.3 59.53,-153.27 132.3,-153.27l1977 0 4262.57 0c72.77,0 132.3,68.98 132.3,153.27l0 410.01c0,84.29 -59.54,153.27 -132.3,153.27z" fill="#FEFEFE" stroke="#373435" strokeWidth="19.68" strokeMiterlimit="22.9256"/>
+          <path className="fil2 str0" d="M6836.46 3691.05l-6239.57 0c-72.76,0 -132.3,-68.97 -132.3,-153.27l0 -410.04c0,-84.3 59.53,-153.27 132.3,-153.27l6239.57 0c72.77,0 132.3,68.98 132.3,153.27l0 410.04c0,84.29 -59.54,153.27 -132.3,153.27z" fill="#FEFEFE" stroke="#373435" strokeWidth="19.68" strokeMiterlimit="22.9256"/>
+          <path className="fil3" d="M2433.35 2215.6l0 696.88 -1836.46 0c-33.41,0 -63.87,-15.94 -86.02,-41.6 -22.47,-26.04 -36.45,-62.09 -36.45,-101.83l0 -410.01c0,-39.74 13.96,-75.79 36.45,-101.83 22.15,-25.67 52.61,-41.6 86.02,-41.6l1836.46 0z" fill={accentHex}/>
+          <path className="fil2 str0" d="M6836.46 4459.78l-6239.57 0c-72.76,0 -132.3,-68.97 -132.3,-153.27l0 -410.04c0,-84.3 59.53,-153.27 132.3,-153.27l6239.57 0c72.77,0 132.3,68.98 132.3,153.27l0 410.04c0,84.29 -59.54,153.27 -132.3,153.27z" fill="#FEFEFE" stroke="#373435" strokeWidth="19.68" strokeMiterlimit="22.9256"/>
+          <path className="fil3" d="M2433.35 2984.32l0 696.88 -1836.46 0c-33.41,0 -63.87,-15.94 -86.02,-41.6 -22.47,-26.04 -36.45,-62.09 -36.45,-101.83l0 -410.01c0,-39.74 13.96,-75.79 36.45,-101.83 22.15,-25.67 52.61,-41.6 86.02,-41.6l1836.46 0z" fill={accentHex}/>
+          <path className="fil3" d="M2433.35 3753.05l0 696.88 -1836.46 0c-33.41,0 -63.87,-15.94 -86.02,-41.6 -22.47,-26.04 -36.45,-62.09 -36.45,-101.83l0 -410.01c0,-39.74 13.96,-75.79 36.45,-101.83 22.15,-25.67 52.61,-41.6 86.02,-41.6l1836.46 0z" fill={accentHex}/>
+        </g>
+      </svg>
+
+      {logo && (
+        <div 
+          className="absolute top-[25%] left-[30%] transform -translate-x-1/2 -translate-y-1/2"
+          style={{ 
+            width: `${logoSize}%`,
+            maxWidth: '60%',
+            maxHeight: '40%'
+          }}
+        >
+          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+        </div>
+      )}
+    </div>
+  );
+};
