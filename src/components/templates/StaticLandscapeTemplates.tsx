@@ -53,3 +53,17 @@ export const StaticLandscapeOption3 = () => (
     </svg>
   </div>
 );
+
+// Add the static version of the Facing Out template
+export const StaticFacingOutTemplate = () => (
+  <div className="aspect-square bg-white flex items-center justify-center overflow-hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="100%" height="100%" version="1.1" 
+      style={{shapeRendering:"geometricPrecision", textRendering:"geometricPrecision", imageRendering:"auto", fillRule:"evenodd", clipRule:"evenodd"}}
+      viewBox="0 0 2015.49 1333.78">
+      <g id="Layer_x0020_1">
+        <rect className="fil0" x="0" width="2015.49" height="1333.78" rx="93.42" ry="118.56" fill="#FEFEFE"/>
+        <path className="fil1" d="M121.17 0l1773.16 0c33.32,0 63.62,13.61 85.58,35.54 21.96,21.92 35.59,52.17 35.59,85.45l0 1091.81c0,33.28 -13.63,63.52 -35.59,85.45 -21.96,21.92 -52.25,35.54 -85.58,35.54l-1773.16 0c-33.32,0 -63.62,-13.61 -85.58,-35.54 -21.96,-21.92 -35.59,-52.17 -35.59,-85.45l0 -1091.81c0,-33.28 13.63,-63.52 35.59,-85.45 21.96,-21.92 52.25,-35.54 85.58,-35.54zm1773.16 5.9l-1773.16 0c-31.69,0 -60.51,12.95 -81.4,33.81 -20.89,20.86 -33.86,49.63 -33.86,81.28l0 1091.81c0,31.65 12.97,60.42 33.86,81.28 20.89,20.85 49.7,33.81 81.4,33.81l1773.16 0c31.69,0 60.51,-12.95 81.4,-33.81 20.89,-20.86 33.86,-49.63 33.86,-81.28l0 -1091.81c0,-31.65 -12.97,-60.42 -33.86,-81.28 -20.89,-20.85 -49.7,-33.81 -81.4,-33.81z" fill="#373435"/>
+      </g>
+    </svg>
+  </div>
+);

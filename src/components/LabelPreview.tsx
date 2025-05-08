@@ -5,7 +5,8 @@ import { useTemplate } from "@/context/LabelTemplateContext";
 import { 
   DynamicLandscapeOption1,
   DynamicLandscapeOption2,
-  DynamicLandscapeOption3 
+  DynamicLandscapeOption3,
+  DynamicFacingOutTemplate
 } from "./templates/DynamicLandscapeTemplates";
 
 const LabelPreview = () => {
@@ -91,7 +92,12 @@ const LabelPreview = () => {
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
               <div className="w-full h-full p-2">
-                {renderTemplate()}
+                <DynamicFacingOutTemplate 
+                  backgroundColor={backgroundColor} 
+                  accentColor={accentColor} 
+                  logo={logo} 
+                  logoSize={logoSize}
+                />
               </div>
             </div>
           </div>
@@ -117,7 +123,12 @@ const LabelPreview = () => {
             </div>
             <div className="h-48 border-2 border-gray-200 border-t-0 rounded-b-lg flex items-center justify-center">
               <div className="w-full h-full p-2">
-                {renderTemplate()}
+                <DynamicFacingOutTemplate 
+                  backgroundColor={backgroundColor} 
+                  accentColor={accentColor} 
+                  logo={logo} 
+                  logoSize={logoSize}
+                />
               </div>
             </div>
           </div>
