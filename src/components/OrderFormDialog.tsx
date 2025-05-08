@@ -1,0 +1,155 @@
+
+import * as React from "react";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogDescription,
+  DialogFooter,
+  DialogClose
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const orderFormSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  phone: z.string().min(6, "Phone number is required"),
+  email: z.string().email("Please enter a valid email address"),
+  address: z.string().min(5, "Address is required"),
+  capricornNumber: z.string().optional()
+});
+
+type OrderFormValues = z.infer<typeof orderFormSchema>;
+
+interface OrderFormDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+export function OrderFormDialog({ open, onOpenChange }: OrderFormDialogProps) {
+  const form = useForm<OrderFormValues>({
+    resolver: zodResolver(orderFormSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      address: "",
+      capricornNumber: ""
+    }
+  });
+
+  const onSubmit = (data: OrderFormValues) => {
+    console.log("Order form submitted:", data);
+    // Handle form submission - in a real app this would send the data to a server
+    // For now, just close the dialog
+    onOpenChange(false);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-[500px]">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold">Place Your Order</DialogTitle>
+          <DialogDescription>
+            Please provide your information to complete your order.
+          </DialogDescription>
+        </DialogHeader>
+        
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your phone number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your email" type="email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Delivery Address</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Enter your delivery address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="capricornNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Capricorn Number (if applicable)</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your Capricorn number (optional)" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <DialogFooter className="pt-4">
+              <DialogClose asChild>
+                <Button type="button" variant="outline">Cancel</Button>
+              </DialogClose>
+              <Button type="submit" className="bg-[#FF6600] hover:bg-[#e05a00]">Submit Order</Button>
+            </DialogFooter>
+          </form>
+        </Form>
+      </DialogContent>
+    </Dialog>
+  );
+}
